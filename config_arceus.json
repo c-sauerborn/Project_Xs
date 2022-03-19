@@ -1,0 +1,26 @@
+{
+    "MonitorWindow": false,
+    "WindowPrefix": "SysDVR-Client [PID ",
+    "image": "./images/mtcoronet/arceus.PNG",
+    "view": [
+        914,
+        541,
+        76,
+        75
+    ],
+    "thresh": 0.7,
+    "white_delay": 30.0,
+    "advance_delay": 30,
+    "advance_delay_2": 0,
+    "npc": 0,
+    "timeline_npc": 0,
+    "pokemon_npc": 1,
+    "crop": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "camera": 2,
+    "display_percent": 65
+}
