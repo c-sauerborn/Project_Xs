@@ -3,8 +3,8 @@
     "WindowPrefix": "SysDVR-Client [PID ",
     "image": "./images/mtcoronet/arceus.PNG",
     "view": [
-        914,
-        541,
+        0,
+        0,
         76,
         75
     ],
@@ -21,6 +21,6 @@
         0,
         0
     ],
-    "camera": 2,
+    "camera": 0,
     "display_percent": 65
 }
