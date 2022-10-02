@@ -1,20 +1,20 @@
 {
     "MonitorWindow": true,
-    "WindowPrefix": "Windowed",
-    "image": "./images/Zaza.png",
+    "WindowPrefix": "SysDVR-Client [PID ",
+    "image": "./images/cave/eye.png",
     "view": [
-        431,
-        350,
-        75,
-        75
+        0,
+        0,
+        40,
+        40
     ],
-    "thresh": 0.75,
-    "white_delay": 3.0,
-    "advance_delay": 3,
+    "thresh": 0.9,
+    "white_delay": 0.0,
+    "advance_delay": 0,
     "advance_delay_2": 0,
     "npc": 0,
-    "pokemon_npc": 1,
     "timeline_npc": 0,
+    "pokemon_npc": 0,
     "crop": [
         0,
         0,
