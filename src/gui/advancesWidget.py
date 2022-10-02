@@ -6,46 +6,55 @@ class AdvancesWidget(Frame):
         ttk.Labelframe.__init__(self, parent, text="Advances")
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
-        self.initVariables()
-        self.initWidgets()
+        self.init_variables()
+        self.init_widgets()
+        self.update_widgets_with_variables()
 
-    def initWidgets(self):
+    def init_widgets(self):
         # Widgets
-        advancesLabel = ttk.Label(self,text="Advances:")
-        numberOfAdvancesLabel = ttk.Label(self,text=self.advances)
-        timerLabel = ttk.Label(self,text="Timer:")
-        timerCountLabel = ttk.Label(self,text=self.count_down)
-        xToAdvanceLabel = ttk.Label(self,text="X to advance:")        
-        self.advanceSpinBox = Spinbox(self, from_ = 0, to = 999999)
-        advanceButton = ttk.Button(self, text="Advance")
-        keyPressAdvanceLabel = ttk.Label(self,text="Keypress Advance:")
-        self.keypressAdvanceSpinBox = self.keypress_advance = Spinbox(self, from_ = 0, to = 999999)
+        progress_lb = ttk.Label(self,text="Progress:")
+        progress_number_lb = ttk.Label(self,text=f"{self.var_progress.get()}/{self.var_max_progres.get()}")
+        advances_lab = ttk.Label(self,text="Advances:")
+        advances_number_lb = ttk.Label(self,text=self.var_advances.get())
+        timer_lb = ttk.Label(self,text="Timer:")
+        timer_number_lb = ttk.Label(self,text=self.count_down.get())
+        x_to_advance_lb = ttk.Label(self,text="X to advance:")        
+        self.x_to_advance_spbox = Spinbox(self, from_ = 0, to = 999999)
+        advance_btn = ttk.Button(self, text="Advance")
+        key_press_advance_lb = ttk.Label(self,text="Keypress Advance:")
+        self.key_press_advance_spbox = self.keypress_advance = Spinbox(self, from_ = 0, to = 999999)
 
 
         # Column 0
-        advancesLabel.grid(column=0, row=0, sticky = W,padx=5, pady=5)
-        timerLabel.grid(column=0, row=1, sticky = W,padx=5, pady=5)
-        xToAdvanceLabel.grid(column=0, row=2, sticky = W,padx=5, pady=5)
-        keyPressAdvanceLabel.grid(column=0,row=3, sticky = W, padx=5, pady=5)
+        progress_lb.grid(column=0, row=0, sticky=W, padx=5, pady=5)
+        advances_lab.grid(column=0, row=1, sticky = W,padx=5, pady=5)
+        timer_lb.grid(column=0, row=2, sticky = W,padx=5, pady=5)
+        x_to_advance_lb.grid(column=0, row=3, sticky = W,padx=5, pady=5)
+        key_press_advance_lb.grid(column=0,row=4, sticky = W, padx=5, pady=5)
 
         #Column 1
-        numberOfAdvancesLabel.grid(column=1, row=0, padx=5, pady=5)
-        timerCountLabel.grid(column=1, row=1, padx=5, pady=5)
-        self.advanceSpinBox.grid(column=1, row=2, padx=5, pady=5)
-        advanceButton.grid(column=1, row=3, padx=5, pady=5)
-        self.keypressAdvanceSpinBox.grid(column=1,row=14, padx=5, pady=5)
+        progress_number_lb.grid(column=1, row=0, padx=5, pady=5)
+        advances_number_lb.grid(column=1, row=1, padx=5, pady=5)
+        timer_number_lb.grid(column=1, row=2, padx=5, pady=5)
+        self.x_to_advance_spbox.grid(column=1, row=3, padx=5, pady=5)
+        self.key_press_advance_spbox.grid(column=1,row=4, padx=5, pady=5)
+        advance_btn.grid(column=1, row=5, padx=5, pady=5)
 
 
-    def initVariables(self):
-        self.advances = 0
-        self.count_down = 0
+    def init_variables(self):
+        self.var_x_to_advance = IntVar(value = 0)
+        self.var_key_press_advance = IntVar(value = 0)
+        self.var_advances = IntVar(value= 0)
+        self.count_down = IntVar(value = 0)
+        self.var_progress = IntVar(value = 0)
+        self.var_max_progres = IntVar(value = 0)
 
-    def insertValues(self):
-        self.advanceSpinBox.insert("1.0", 0)
-        self.keypressAdvanceSpinBox.insert("1.0", 0)
+    def update_widgets_with_variables(self):
+        self.x_to_advance_spbox.delete(0, END)
+        self.key_press_advance_spbox.delete(0, END)
 
-    def get(self):
-        return self.entry.get()
+        self.x_to_advance_spbox.insert(0, self.var_x_to_advance.get())
+        self.key_press_advance_spbox.insert(0, self.var_key_press_advance.get())
 
 if __name__ == "__main__":
     AdvancesWidget()

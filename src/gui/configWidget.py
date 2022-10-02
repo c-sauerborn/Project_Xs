@@ -5,34 +5,34 @@ class ConfigWidget(Frame):
     def __init__(self, parent=None):
         ttk.Labelframe.__init__(self, parent, text = "Config")
         self.grid(in_=parent, padx=5, pady=5)
-        self.initVariables()
-        self.initWidgets()
+        self.init_variables()
+        self.init_widgets()
 
-    def initWidgets(self):
+    def init_widgets(self):
         # Widgets
-        configLabel = ttk.Label(self, text="Configuration: ")
-        configCombobox = ttk.Combobox(self, state="readonly", textvariable=self.selectedConfig, values=[])
-        configCombobox.bind("<<ComboboxSelected>>", self.onConfigSelect) 
+        config_lb = ttk.Label(self, text="Configuration: ")
+        config_cbox = ttk.Combobox(self, state="readonly", textvariable=self.var_selected_config, values=[])
+        config_cbox.bind("<<ComboboxSelected>>", self.on_config_select) 
         # configCombobox.bind("<Button-1>", self.update_configs)
-        addConfigButton = ttk.Button(self,text="Add Config", width=18) #command=self.new_config
-        saveConfigButton = ttk.Button(self, text="Save Config", width=18) #command=self.save_config
+        add_config_btn = ttk.Button(self,text="Add Config", width=18) #command=self.new_config
+        save_config_btn = ttk.Button(self, text="Save Config", width=18) #command=self.save_config
 
         # Column 0
-        configLabel.grid(column=0, row=0, sticky = W,padx=5, pady=5)
+        config_lb.grid(column=0, row=0, sticky = W,padx=5, pady=5)
 
         # Column 1
-        configCombobox.grid(column=1,row=0, padx=5, pady=5)
+        config_cbox.grid(column=1,row=0, padx=5, pady=5)
 
         # Column 2
-        addConfigButton.grid(column=2, row=0, columnspan=2, sticky = W, padx=5, pady=5)
-        saveConfigButton.grid(column=2, row=1, columnspan=2, sticky = W, padx=5, pady=5)
+        add_config_btn.grid(column=2, row=0, columnspan=2, sticky = W, padx=5, pady=5)
+        save_config_btn.grid(column=2, row=1, columnspan=2, sticky = W, padx=5, pady=5)
 
-    def initVariables(self):
-        self.selectedConfig = StringVar(value="")
+    def init_variables(self):
+        self.var_selected_config = StringVar(value="")
         #self.update_configs()
 
-    def onConfigSelect(self):
-        print(f"Config selected to {self.selectedConfig}")
+    def on_config_select(self):
+        print(f"Config selected to {self.var_selected_config}")
         # update config
 
 if __name__ == "__main__":

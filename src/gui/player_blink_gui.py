@@ -6,6 +6,7 @@ from configWidget import ConfigWidget
 from seedsWidget import SeedsWidget
 from eyesWidget import EyesWidget
 from controlsWidget import ControlsWidget
+from sceneSettingsWidgets import SceneSettingsWidget
 
 class Application(Frame):
     def __init__(self, master:Tk = None):
@@ -29,6 +30,7 @@ class Application(Frame):
         SeedsWidget(self.master).grid(column=4, row=0, sticky = NW)
         EyesWidget(self.master).grid(column=0, row=1, sticky = NW)
         ControlsWidget(self.master).grid(column=1, row=1, sticky = NW)
+        SceneSettingsWidget(self.master).grid(column=2, row=1, sticky = NW)
 
 
 root = Tk()
